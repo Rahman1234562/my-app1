@@ -2,6 +2,6 @@
 
 export const Header = () => {
     return <div>
-        <h1>this is Header</h1>
+        <h1>this is the header compnent</h1>
     </div>
 }

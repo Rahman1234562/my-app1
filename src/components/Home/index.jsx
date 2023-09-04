@@ -8,7 +8,7 @@ export const Layout = (props) => {
       <div className={classes.todo}>
         <input type="text" value={""} />
         <h1>{text}</h1>
-        <button onClick={isEdit}>Edit</button>
+        <button onClick={setIsEdit}>Edit</button>
         <button>Delete</button>
       </div>
     </div>
