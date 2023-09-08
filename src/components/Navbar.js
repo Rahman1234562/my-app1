@@ -1,13 +1,13 @@
 import React from "react";
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 export default function Navbar(props) {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-           {props.title}
+            {props.title}
           </a>
           <button
             className="navbar-toggler"
@@ -29,11 +29,11 @@ export default function Navbar(props) {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/">
-                 {props.about}
+                  {props.about}
                 </a>
               </li>
             </ul>
-            <form className="d-flex" role="search">
+            {/* <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
                 type="search"
@@ -43,7 +43,22 @@ export default function Navbar(props) {
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
-            </form>
+            </form> */}
+
+            <div className={`form-check form-switch text-${props.mode === "light" ? "dark" : "light"}`}>
+              <input
+                className="form-check-input"
+                onClick={props.toggle}
+                type="checkbox"
+                id="flexSwitchCheckDefault"
+              />
+              <label 
+              className="form-check-label"
+               htmlFor="flexSwitchCheckDefault"
+               >
+                Dark Mode
+              </label>
+            </div>
           </div>
         </div>
       </nav>
@@ -51,19 +66,18 @@ export default function Navbar(props) {
   );
 }
 
-
-//this propTypes is use which type of data you want to execute here string data is executed not other data 
+//this propTypes is use which type of data you want to execute here string data is executed not other data
 //allow to execute because you define the data type or propType
-Navbar.propTypes = {
-    title: PropTypes.string,
-    about: PropTypes.string
+// Navbar.propTypes = {
+//     title: PropTypes.string,
+//     about: PropTypes.string
 
-}
+// }
 
-// another propstype bydefault exxecuted that you don't define the props data is empty or the props already 
+// another propstype bydefault exxecuted that you don't define the props data is empty or the props already
 // take with name  can't change it
 //here you can define by default e.g.
 
-Navbar.defaultProps = {
-    title: "Profile",
-}
+// Navbar.defaultProps = {
+//     title: "Profile",
+// }
