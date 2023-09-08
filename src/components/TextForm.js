@@ -48,7 +48,7 @@ export default function TextForm(props) {
         <button className="btn btn-primary my-2 mx-1" onClick={handleClearClick}>
         clear text
         </button>
-        
+
       </div>
       <div className="container">
         <h2>your text Proview</h2>
