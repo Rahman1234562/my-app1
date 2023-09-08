@@ -23,6 +23,18 @@ export default function TextForm(props) {
     // console.log("on change");
     setText(event.target.value);
   };
+
+  const handleCopy = () => {
+    let text = document.getElementById("textBox");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+
+  }
+
+  const removeExtraSpace = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "))
+  }
   const [text, setText] = useState("");
   
 
@@ -48,7 +60,14 @@ export default function TextForm(props) {
         <button className="btn btn-primary my-2 mx-1" onClick={handleClearClick}>
         clear text
         </button>
+         
+        <button className="btn btn-primary my-2 mx-1" onClick={handleCopy}>
+        copy text
+        </button>
 
+        <button className="btn btn-primary my-2 mx-1" onClick={removeExtraSpace}>
+       remove Extra space
+        </button>
       </div>
       <div className="container">
         <h2>your text Proview</h2>

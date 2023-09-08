@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
 export default function About() {
-
+//use for conditional style 
  const [myStyle, setMyStyle] = useState({
     color: "white",
     backgroundColor: "black",
     border: "1px solid white"
  })
+ //For click on btn to convert Dark mode
 const [btnText, setBtnText] = useState("Enable Dark mode");
  
     const toggleStyle = () => {
