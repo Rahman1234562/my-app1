@@ -5,17 +5,20 @@ export default function TextForm(props) {
     // console.log("upper was clicked" + text);
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("converted to upper case", "success");
   };
 
   const handleLuClick = () => {
     // console.log("upper was clicked" + text);
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("converted to Lower case", "success");
   };
   const handleClearClick = () => {
     // console.log("upper was clicked" + text);
     let newText = ' ';
     setText(newText);
+    props.showAlert("text have been cleared", "success");
   };
 
 
@@ -28,12 +31,14 @@ export default function TextForm(props) {
     let text = document.getElementById("textBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("copied to clipboard", "success");
 
   }
 
   const removeExtraSpace = () => {
     let newText = text.split(/[ ]+/);
-    setText(newText.join(" "))
+    setText(newText.join(" "));
+    props.showAlert("removed extra spaces", "success");
   }
   const [text, setText] = useState("");
   
@@ -42,7 +47,7 @@ export default function TextForm(props) {
     <div>
 
       <div className="container mb-3"  style={{color: props.mode=== "dark" ? "white" : "#042743"}}>
-      <h1>{props.heading}</h1>
+        <h1>{props.heading}</h1>
         <label htmlFor="textBox" className="form-label"></label>
         <textarea
           className="form-control"
@@ -73,11 +78,11 @@ export default function TextForm(props) {
       </div>
       <div className="container" style={{color: props.mode=== "dark" ? "white" : "#042743"}}>
         <h2>your text Proview</h2>
-        <p>{text.split(" ").length} word and {text.length} character</p>
+        <p>{text.split(" ").length -1} word and {text.length} character</p>
         <p>{0.008 * text.split(" ").length} Minute read</p>
         <p>{text.split( " ").length -1} space count</p>
         <h2>Preview</h2>
-        <p>{text.length>0 ? text : "Enter your text in the text box above to preview your text"}</p>
+        <p>{text.length > 0 ? text : "Enter your text in the text box above to preview your text"}</p>
       </div>
     </div>
   );
