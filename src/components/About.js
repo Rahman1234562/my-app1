@@ -1,31 +1,38 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
-export default function About() {
+export default function About(props) {
 //use for conditional style 
- const [myStyle, setMyStyle] = useState({
-    color: "white",
-    backgroundColor: "black",
-    border: "1px solid white"
- })
+//  const [myStyle, setMyStyle] = useState({
+//     color: "white",
+//     backgroundColor: "black",
+//     border: "1px solid white"
+//  })
+
+ let myStyle = {
+    color : props.mode === "dark" ? "white" : "#042743",
+    backgroundColor  : props.mode === "dark" ? "#042743" : "white",
+    border: "2px solid",
+    borderColor: props.mode === "dark" ? "#042743" : "white",
+   }
  //For click on btn to convert Dark mode
-const [btnText, setBtnText] = useState("Enable Dark mode");
+// const [btnText, setBtnText] = useState("Enable Dark mode");
  
-    const toggleStyle = () => {
-     if(myStyle.color === "white"){
-       setMyStyle({
-        color: "black",
-        backgroundColor: "white"
-       })
-       setBtnText("Enable Dark Mode")
-     }
-     else{
-        setMyStyle({
-            color: "white",
-            backgroundColor: "black"
-        })
-        setBtnText("Enable Light Mode")
-     }
-    }
+//     const toggleStyle = () => {
+//      if(myStyle.color === "white"){
+//        setMyStyle({
+//         color: "black",
+//         backgroundColor: "white"
+//        })
+//        setBtnText("Enable Dark Mode")
+//      }
+//      else{
+//         setMyStyle({
+//             color: "white",
+//             backgroundColor: "black"
+//         })
+//         setBtnText("Enable Light Mode")
+//      }
+//     }
   return (
     <div className="container" style={myStyle}>
       <div className="accordion" id="accordionExample">
@@ -127,7 +134,7 @@ const [btnText, setBtnText] = useState("Enable Dark mode");
         </div>
       </div>
       <div className="container my-3">
-             <button onClick={toggleStyle} type="button" class="btn btn-primary">{btnText}</button>
+             {/* <button onClick={toggleStyle} type="button" class="btn btn-primary">{btnText}</button> */}
       </div>
  
     </div>

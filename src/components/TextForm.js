@@ -58,28 +58,28 @@ export default function TextForm(props) {
           id="textBox"
           rows="8"
         ></textarea>
-        <button className="btn btn-primary my-2 mx-1" onClick={handleUpClick}>
+        <button  disabled= {text.length === 0}  className="btn btn-primary my-2 mx-1" onClick={handleUpClick}>
           tap to upperCase
         </button>
-        <button className="btn btn-primary my-2 mx-1" onClick={handleLuClick}>
+        <button disabled= {text.length === 0} className="btn btn-primary my-2 mx-1" onClick={handleLuClick}>
           tap to lowerCase
         </button>
-        <button className="btn btn-primary my-2 mx-1" onClick={handleClearClick}>
+        <button disabled= {text.length === 0} className="btn btn-primary my-2 mx-1" onClick={handleClearClick}>
         clear text
         </button>
          
-        <button className="btn btn-primary my-2 mx-1" onClick={handleCopy}>
+        <button disabled= {text.length === 0} className="btn btn-primary my-2 mx-1" onClick={handleCopy}>
         copy text
         </button>
 
-        <button className="btn btn-primary my-2 mx-1" onClick={removeExtraSpace}>
+        <button disabled= {text.length === 0} className="btn btn-primary my-2 mx-1" onClick={removeExtraSpace}>
        remove Extra space
         </button>
       </div>
       <div className="container" style={{color: props.mode=== "dark" ? "white" : "#042743"}}>
         <h2>your text Proview</h2>
-        <p>{text.split(" ").length -1} word and {text.length} character</p>
-        <p>{0.008 * text.split(" ").length} Minute read</p>
+        <p>{text.split(" ").filter((element) => {return element.length !== 0}).length} word and {text.length} character</p>
+        <p>{0.008 * text.split(" ").filter((element) => {return element.length !== 0}).length} Minute read</p>
         <p>{text.split( " ").length -1} space count</p>
         <h2>Preview</h2>
         <p>{text.length > 0 ? text : "Enter your text in the text box above to preview your text"}</p>
